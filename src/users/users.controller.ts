@@ -8,7 +8,7 @@ import { LoggingInterceptor } from 'src/utils/logging.interceptor';
 export class UsersController {
   constructor(private readonly usersService: UsersService) { }
 
-  // @UseInterceptors(LoggingInterceptor)
+  @UseInterceptors(LoggingInterceptor)
   @Get()
   async getUsers(@ExecutionTime() executionTime: { start: number }) {
     const users = await this.usersService.getUsers();
